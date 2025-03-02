@@ -8,7 +8,6 @@ import com.duoyuanhe.fansweb.user.extensions.validate
 import com.duoyuanhe.fansweb.user.mapper.UserMapper
 import com.duoyuanhe.fansweb.user.model.User
 import com.duoyuanhe.fansweb.user.model.http.ResponseResult
-import com.duoyuanhe.fansweb.user.model.http.UserResponseBody
 import com.duoyuanhe.fansweb.user.model.http.request.GetVerificationCodeRequestBody
 import com.duoyuanhe.fansweb.user.model.http.request.UserLoginRequestBody
 import com.duoyuanhe.fansweb.user.model.http.request.UserRegisterRequestBody

@@ -1,9 +1,13 @@
 package com.duoyuanhe.fansweb.user.controller
 
+import com.duoyuanhe.fansweb.user.model.http.ResponseResult
+import com.duoyuanhe.fansweb.user.model.http.UserResponseBody
 import com.duoyuanhe.fansweb.user.model.http.request.GetVerificationCodeRequestBody
+import com.duoyuanhe.fansweb.user.model.http.request.UserLoginRequestBody
 import com.duoyuanhe.fansweb.user.model.http.request.UserRegisterRequestBody
 import com.duoyuanhe.fansweb.user.service.UserService
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.ExampleObject
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -19,11 +23,6 @@ class UserController {
 
     @Autowired
     private lateinit var userService: UserService
-
-    @GetMapping("/test")
-    fun test(): String {
-        return "ok"
-    }
 
 
     @Operation(summary = "根据手机号或邮箱获取验证码")
@@ -86,6 +85,18 @@ class UserController {
     )
     fun register(@RequestBody userRegisterRequestBody: UserRegisterRequestBody): Any {
         return userService.register(userRegisterRequestBody)
+    }
+
+    @PostMapping("/login")
+    @Operation(summary = "用户登录接口", description = "使用手机号或邮箱加密码进行登录")
+    @ApiResponses(
+        value = [
+            ApiResponse(responseCode = "200", description = "登录成功"),
+            ApiResponse(responseCode = "400", description = "用户不存在或密码错误")
+        ]
+    )
+    fun login(@RequestBody userLoginRequestBody: UserLoginRequestBody): ResponseResult {
+        return userService.login(userLoginRequestBody)
     }
 
 

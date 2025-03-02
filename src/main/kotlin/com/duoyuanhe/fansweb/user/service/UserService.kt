@@ -2,7 +2,6 @@ package com.duoyuanhe.fansweb.user.service
 
 import com.duoyuanhe.fansweb.user.model.http.ResponseResult
 import com.duoyuanhe.fansweb.user.model.http.request.UserRegisterRequestBody
-import com.duoyuanhe.fansweb.user.model.http.UserResponseBody
 import com.duoyuanhe.fansweb.user.model.http.request.GetVerificationCodeRequestBody
 import com.duoyuanhe.fansweb.user.model.http.request.UserLoginRequestBody
 import com.duoyuanhe.fansweb.verifcode.VerificationAdapter
